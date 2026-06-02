@@ -1,1 +1,515 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CMUH ARDS Lung Protective Strategy Protocol</title><style> @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Source+Code+Pro:wght@400;600&display=swap'); *{margin:0;padding:0;box-sizing:border-box;} :root{ --blue: #2E5F9E; --blueBg: #DCE8F8; --green: #3D6B2A; --greenBg: #E3EFD8; --brown: #7A5A2A; --brownBg: #F0E8D0; --dbrown: #6A3F10; --purple: #5A3A8A; --purpleBg:#EDE8F8; --amber: #C8900A; --amberBg: #FFF6DC; --red: #B83232; --redBg: #FDEBEB; --greenOk: #2E6B3A; --greenOkBg:#D4EDDA; --gray: #222; --light: #f8f7f4; } body{ font-family:'Noto Sans TC',sans-serif; background:#e8e4de; color:var(--gray); padding:24px 16px 48px; } .container{ max-width:780px; margin:0 auto; } .main-title{ text-align:center; margin-bottom:28px; } .main-title h1{ font-size:20px; font-weight:900; color:var(--blue); letter-spacing:.5px; line-height:1.4; } .main-title p{ font-size:11.5px; color:#888; margin-top:4px; letter-spacing:1px; } .trigger{ display:flex; align-items:center; gap:10px; margin:20px 0 6px; padding:0 2px; } .trigger .arr{ font-size:22px; color:#B85500; line-height:1; flex-shrink:0; } .trigger .txt{ font-size:15px; font-weight:900; color:#222; letter-spacing:.3px; } .card{ border-radius:0 0 6px 6px; overflow:hidden; margin-bottom:6px; box-shadow:0 2px 8px rgba(0,0,0,.1); } .card-hd{ padding:9px 14px; font-size:13.5px; font-weight:700; color:#fff; letter-spacing:.4px; } .card-hd.blue {background:var(--blue);} .card-hd.green {background:var(--green);} .card-hd.brown {background:var(--brown);} .card-hd.dbrown {background:var(--dbrown);} .card-hd.purple {background:var(--purple);} .card-bd{ padding:12px 16px 14px; font-size:13px; line-height:1.8; } .card-bd.blue-bg {background:var(--blueBg); border-left:4px solid var(--blue);} .card-bd.green-bg {background:var(--greenBg);border-left:4px solid var(--green);} .card-bd.brown-bg {background:var(--brownBg);border-left:4px solid var(--brown);} .card-bd.dbrown-bg{background:var(--brownBg);border-left:4px solid var(--dbrown);} .card-bd.purple-bg{background:var(--purpleBg);border-left:4px solid var(--purple);} .li{padding-left:18px;position:relative;margin-bottom:1px;} .li::before{content:'●';position:absolute;left:2px;font-size:7px;top:5px;color:#555;} .li.sq::before{content:'■';font-size:6px;top:5px;} .li.di::before{content:'◆';font-size:7px;top:5px;} .li.ck::before{content:'☑';font-size:11px;top:2px;color:var(--greenOk);} .li.wa::before{content:'△';font-size:10px;top:2px;color:var(--amber);} .sub{padding-left:34px;font-size:12.5px;color:#444;margin-bottom:1px;} .sub2{padding-left:50px;font-size:12px;color:#555;margin-bottom:1px;} .pbw-box{ border:1.5px solid #aaa; background:#f8f9ee; border-radius:4px; padding:9px 12px; margin:10px 0 2px; font-size:12.5px; } .pbw-box .lbl{font-weight:700;color:var(--green);margin-bottom:4px;font-size:13px;} .pbw-box code{font-family:'Source Code Pro',monospace;font-size:12px;display:block;line-height:1.9;} .peep-wrap{margin:10px 0 4px;} .peep-lbl{font-weight:700;color:var(--green);font-size:13px;margin-bottom:5px;} .peep-tbl{width:100%;border-collapse:collapse;font-size:12px;} .peep-tbl td{border:1px solid #bbb;padding:5px 4px;text-align:center;} .peep-tbl td.hd{background:var(--green);color:#fff;font-weight:700;font-size:12.5px;} .flow{ margin-top:14px; display:flex; flex-direction:column; align-items:stretch; } .flow-lbl{ font-weight:700; color:var(--dbrown); font-size:13px; margin-bottom:10px; } .fbox{ border-radius:4px; padding:11px 14px; text-align:center; font-size:13.5px; font-weight:700; line-height:1.4; border:2px solid; } .fbox.decision{ background:var(--amberBg); border-color:var(--amber); color:#5a3800; } .fbox.action{ background:var(--greenOkBg); border-color:var(--greenOk); color:#1a4520; } .flow-arr{ text-align:center; font-size:24px; color:#1a4520; line-height:1; padding:4px 0; } .yn-row{ display:flex; justify-content:space-between; align-items:center; padding:4px 6px; font-size:12px; font-weight:700; } .yn-yes{color:var(--greenOk);} .yn-no {color:var(--red);} .result-row{ display:flex; gap:0; border-radius:4px; overflow:hidden; border:2px solid #bbb; } .result-keep{ flex:1; padding:10px 8px; background:var(--greenOkBg); border-right:1px solid #bbb; text-align:center; font-size:13px; font-weight:700; color:#1a4520; } .result-prone{ flex:1; padding:10px 8px; background:var(--redBg); text-align:center; font-size:13px; font-weight:700; color:#7a1a1a; } .refs{ font-size:10px; color:#888; margin-top:20px; padding-top:10px; border-top:1px solid #ccc; line-height:1.7; } @media print{ body{background:#fff;padding:10px;} .card{box-shadow:none;} }</style></head><body><div class="container"> <div class="main-title"> <h1>CMUH ARDS<br>「Lung Protective Strategy」Protocol</h1> </div> <div class="card"> <div class="card-hd blue">ARDS 2012 Berlin Definition²</div> <div class="card-bd blue-bg"> <div class="li">Onset：1 週內發病，新發或惡化的呼吸症狀（within 7 days）</div> <div class="li">影像：雙側肺浸潤（X-ray / CT），無法以積液、肺葉塌陷或結節完全解釋</div> <div class="li">Cannot be fully explained by cardiac failure or fluid overload</div> <div class="li"><strong>Hypoxemia：PaO₂/FIO₂ ≤ 300 mmHg（PEEP ≥ 5 cmH₂O）</strong></div> <div class="sub">Mild：200 &lt; PaO₂/FIO₂ ≤ 300 mmHg</div> <div class="sub">Moderate：100 &lt; PaO₂/FIO₂ ≤ 200 mmHg</div> <div class="sub">Severe：PaO₂/FIO₂ ≤ 100 mmHg</div> </div> </div> <div class="trigger"><span class="arr">↓</span><span class="txt">PaO₂/FIO₂ ≤ 300 mmHg</span></div> <div class="card"> <div class="card-hd green">Lung Protective Strategy²</div> <div class="card-bd green-bg"> <div class="li sq"><strong>Tidal volume 6 mL/kg PBW（範圍 4–8 mL/kg）within 4 hours</strong></div> <div class="li sq"><strong>Pplat ≤ 30 cmH₂O</strong></div> <div class="li sq">Adequate PEEP（依下方對應表）</div> <div class="li sq">Goal（clinical judgment）</div> <div class="sub">Oxygenation：PaO₂ 55–80 mmHg or SpO₂ <strong>88%–95%</strong></div> <div class="sub">Ventilation：pH ≥ 7.25，Respiratory rate ≤ 35 breaths/min</div> <div class="li sq">Sedation if needed for ventilator synchronization</div> <div class="li sq">F/u arterial gas：<strong>q6h</strong> &amp; <strong>0.5–1 hr</strong> after adjustment</div> <div class="pbw-box"> <div class="lbl">*PBW Predicted Body Weight</div> <code>Male = 50 + 0.91 × (Height − 152.4)</code> <code>Female = 45.5 + 0.91 × (Height − 152.4)</code> </div> <div class="peep-wrap"> <div class="peep-lbl">FIO₂ / PEEP 對應表</div> <table class="peep-tbl" id="peep"></table> </div> </div> </div> <div class="trigger"><span class="arr">↓</span><span class="txt">PaO₂/FIO₂ &lt; 150 mmHg</span></div> <div class="card"> <div class="card-hd brown">Neuromuscular Blocker⁴</div> <div class="card-bd brown-bg"> <div class="li di">Timing：Early — first 48h of mod-severe ARDS（PaO₂/FIO₂ &lt; 150 mmHg under PEEP 5 cmH₂O）</div> <div class="li di">Continuous IV infusion for ventilator synchronization（RASS target：−4 ~ −5）</div> </div> </div> <div class="card" style="margin-top:6px;"> <div class="card-hd dbrown">Prone Position⁵</div> <div class="card-bd dbrown-bg"> <div class="li di">Timing：PaO₂/FIO₂ &lt; 150 mmHg，PEEP ≥ 5 cmH₂O，FIO₂ ≥ 0.6</div> <div class="li di"><strong>Duration：At least 16 hours per day</strong></div> <div class="li di">Stop criteria：</div> <div class="sub"><div class="li ck">改善：Supine P/F &gt; 150，FIO₂ ≤ 0.6，PEEP ≤ 10 cmH₂O，持續 4 hr</div></div> <div class="sub"><div class="li wa">Worsening oxygenation</div></div> <div class="sub"><div class="li wa">Desaturation（SpO₂ 驟降）</div></div> <div class="sub"><div class="li wa">Pressure injury / Catheter or ETT dislodgement</div></div> <div class="sub"><div class="li wa">Cardiac arrest / Hemodynamic instability</div></div> <div class="flow"> <div class="flow-lbl">Prone Position 決策流程圖</div> <div class="fbox decision">Supine position P/F &lt; 150？</div> <div class="yn-row"> <span class="yn-yes">✓ Yes ↓</span> <span class="yn-no" style="color:#999;font-weight:500;">✗ No → 不執行俯臥</span> </div> <div class="fbox action">Prone position ≥ 16 hr / day</div> <div class="flow-arr">↓</div> <div class="fbox decision"> Supine P/F &gt; 150 for 4 hr<br> <span style="font-size:12px;font-weight:500;">（FIO₂ ≤ 0.6，PEEP ≤ 10 cmH₂O）？</span> </div> <div class="yn-row"> <span class="yn-yes">✓ Yes ↓</span> <span class="yn-no">✗ No ↓</span> </div> <div class="result-row"> <div class="result-keep">☑ Keep supine position</div> <div class="result-prone">↩ 繼續俯臥位</div> </div> </div> </div> </div> <div class="trigger"><span class="arr">↓</span><span class="txt">PaO₂/FIO₂ &lt; 80 mmHg</span></div> <div class="card"> <div class="card-hd purple">ECMO⁶</div> <div class="card-bd purple-bg"> <div class="li"><strong>Timing：Early if no contraindications</strong></div> <div class="sub">Hypoxemia：FIO₂ &gt; 0.8 + optimal care as above</div> <div class="sub2">▶ P/F ratio &lt; 80 for <strong>6 hr</strong></div> <div class="sub2">▶ P/F ratio &lt; 50 for <strong>3 hr</strong></div> <div class="sub">Hypercapnia：despite RR ≤ 35 and Pplat ≤ 30 cmH₂O</div> <div class="sub2">▶ PaCO₂ &gt; 60 mmHg &amp; pH &lt; 7.25 for 6H</div> <div style="margin-top:8px;"> <div class="li"><strong>During ECMO：Ultra-protective ventilation</strong></div> <div class="sub">Tidal volume：<strong>4 ml/kg PBW</strong></div> <div class="sub2">▶ PEEP：10 cmH₂O</div> <div class="sub2">▶ Driving pressure：10 cmH₂O</div> <div class="sub2">▶ RR：10 bpm</div> <div class="sub2">▶ FIO₂：0.4</div> </div> </div> </div> <div class="refs"> ² The Berlin Definition. JAMA. 2012;307(23):2526-2533　 ⁴ N Engl J Med 2010;358:1-13　 ⁵ N Engl J Med 2013;368:2095-2107　 ⁶ N Engl J Med 2018;378:1965-75 </div></div><script>const fio2 = ['FIO₂','0.3','0.4','0.5','0.6','0.7','0.8','0.9','1.0'];const peep = ['PEEP','5','5-8','8-10','10','10-14','14','14-18','18-24'];const tbl = document.getElementById('peep');[fio2, peep].forEach((row, ri) => { const tr = tbl.insertRow(); row.forEach((v, ci) => { const td = tr.insertCell(); td.textContent = v; if (ci === 0) td.className = 'hd'; else if (ri === 0) td.style.background = '#f0f7e8'; });});</script></body></html>
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMUH ARDS Lung Protective Strategy Protocol</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Source+Code+Pro:wght@400;600&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  :root{
+    --blue:    #2E5F9E;
+    --blueBg:  #DCE8F8;
+    --green:   #3D6B2A;
+    --greenBg: #E3EFD8;
+    --brown:   #7A5A2A;
+    --brownBg: #F0E8D0;
+    --dbrown:  #6A3F10;
+    --purple:  #5A3A8A;
+    --purpleBg:#EDE8F8;
+    --amber:   #C8900A;
+    --amberBg: #FFF6DC;
+    --red:     #B83232;
+    --redBg:   #FDEBEB;
+    --greenOk: #2E6B3A;
+    --greenOkBg:#D4EDDA;
+    --gray:    #222;
+    --light:   #f8f7f4;
+  }
+
+  body{
+    font-family:'Noto Sans TC',sans-serif;
+    background:#e8e4de;
+    color:var(--gray);
+    padding:24px 16px 48px;
+  }
+
+  .container{
+    max-width:780px;
+    margin:0 auto;
+  }
+
+  .main-title{
+    text-align:center;
+    margin-bottom:28px;
+  }
+  .main-title h1{
+    font-size:20px;
+    font-weight:900;
+    color:var(--blue);
+    letter-spacing:.5px;
+    line-height:1.4;
+  }
+  .main-title p{
+    font-size:11.5px;
+    color:#888;
+    margin-top:4px;
+    letter-spacing:1px;
+  }
+
+  .trigger{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:20px 0 6px;
+    padding:0 2px;
+  }
+  .trigger .arr{font-size:22px;color:#B85500;line-height:1;flex-shrink:0;}
+  .trigger .txt{font-size:15px;font-weight:900;color:#222;letter-spacing:.3px;}
+
+  .card{border-radius:0 0 6px 6px;overflow:hidden;margin-bottom:6px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+  .card-hd{padding:9px 14px;font-size:13.5px;font-weight:700;color:#fff;letter-spacing:.4px;}
+  .card-hd.blue   {background:var(--blue);}
+  .card-hd.green  {background:var(--green);}
+  .card-hd.brown  {background:var(--brown);}
+  .card-hd.dbrown {background:var(--dbrown);}
+  .card-hd.purple {background:var(--purple);}
+
+  .card-bd{padding:12px 16px 14px;font-size:13px;line-height:1.8;}
+  .card-bd.blue-bg  {background:var(--blueBg); border-left:4px solid var(--blue);}
+  .card-bd.green-bg {background:var(--greenBg);border-left:4px solid var(--green);}
+  .card-bd.brown-bg {background:var(--brownBg);border-left:4px solid var(--brown);}
+  .card-bd.dbrown-bg{background:var(--brownBg);border-left:4px solid var(--dbrown);}
+  .card-bd.purple-bg{background:var(--purpleBg);border-left:4px solid var(--purple);}
+
+  .li{padding-left:18px;position:relative;margin-bottom:1px;}
+  .li::before{content:'●';position:absolute;left:2px;font-size:7px;top:5px;color:#555;}
+  .li.sq::before{content:'■';font-size:6px;top:5px;}
+  .li.di::before{content:'◆';font-size:7px;top:5px;}
+  .li.ck::before{content:'☑';font-size:11px;top:2px;color:var(--greenOk);}
+  .li.wa::before{content:'△';font-size:10px;top:2px;color:var(--amber);}
+  .sub{padding-left:34px;font-size:12.5px;color:#444;margin-bottom:1px;}
+  .sub2{padding-left:50px;font-size:12px;color:#555;margin-bottom:1px;}
+
+  .pbw-box{border:1.5px solid #aaa;background:#f8f9ee;border-radius:4px;padding:9px 12px;margin:10px 0 2px;font-size:12.5px;}
+  .pbw-box .lbl{font-weight:700;color:var(--green);margin-bottom:4px;font-size:13px;}
+  .pbw-box code{font-family:'Source Code Pro',monospace;font-size:12px;display:block;line-height:1.9;}
+
+  .peep-wrap{margin:10px 0 4px;}
+  .peep-lbl{font-weight:700;color:var(--green);font-size:13px;margin-bottom:5px;}
+  .peep-tbl{width:100%;border-collapse:collapse;font-size:12px;}
+  .peep-tbl td{border:1px solid #bbb;padding:5px 4px;text-align:center;}
+  .peep-tbl td.hd{background:var(--green);color:#fff;font-weight:700;font-size:12.5px;}
+
+  .flow{margin-top:14px;display:flex;flex-direction:column;align-items:stretch;}
+  .flow-lbl{font-weight:700;color:var(--dbrown);font-size:13px;margin-bottom:10px;}
+  .fbox{border-radius:4px;padding:11px 14px;text-align:center;font-size:13.5px;font-weight:700;line-height:1.4;border:2px solid;}
+  .fbox.decision{background:var(--amberBg);border-color:var(--amber);color:#5a3800;}
+  .fbox.action{background:var(--greenOkBg);border-color:var(--greenOk);color:#1a4520;}
+  .flow-arr{text-align:center;font-size:24px;color:#1a4520;line-height:1;padding:4px 0;}
+  .yn-row{display:flex;justify-content:space-between;align-items:center;padding:4px 6px;font-size:12px;font-weight:700;}
+  .yn-yes{color:var(--greenOk);}
+  .yn-no {color:var(--red);}
+  .result-row{display:flex;gap:0;border-radius:4px;overflow:hidden;border:2px solid #bbb;}
+  .result-keep{flex:1;padding:10px 8px;background:var(--greenOkBg);border-right:1px solid #bbb;text-align:center;font-size:13px;font-weight:700;color:#1a4520;}
+  .result-prone{flex:1;padding:10px 8px;background:var(--redBg);text-align:center;font-size:13px;font-weight:700;color:#7a1a1a;}
+
+  .refs{font-size:10px;color:#888;margin-top:20px;padding-top:10px;border-top:1px solid #ccc;line-height:1.7;}
+
+  /* RASS button */
+  .rass-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:18px;height:18px;
+    background:#C8900A;
+    color:#fff;
+    font-size:11px;
+    font-weight:900;
+    border-radius:50%;
+    cursor:pointer;
+    margin-left:5px;
+    vertical-align:middle;
+    border:none;
+    line-height:1;
+    flex-shrink:0;
+    position:relative;
+    top:-1px;
+  }
+  .rass-btn:hover{background:#a07008;}
+
+  /* Modal overlay */
+  .rass-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    z-index:999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .rass-overlay.open{display:flex;}
+  .rass-modal{
+    background:#fff;
+    border-radius:8px;
+    max-width:480px;
+    width:100%;
+    max-height:88vh;
+    overflow-y:auto;
+    box-shadow:0 8px 32px rgba(0,0,0,.3);
+  }
+  .rass-modal-hd{
+    background:#7A5A2A;
+    color:#fff;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:700;
+    border-radius:8px 8px 0 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .rass-close{
+    background:none;border:none;color:#fff;
+    font-size:20px;cursor:pointer;line-height:1;padding:0 2px;
+  }
+  .rass-tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .rass-tbl th{background:#F0E8D0;padding:6px 10px;text-align:center;font-weight:700;color:#6A3F10;border-bottom:1px solid #d8c9a8;}
+  .rass-tbl td{border-bottom:1px solid #ede4d4;padding:6px 10px;vertical-align:middle;}
+  .rass-tbl td.score{text-align:center;font-weight:900;font-size:13px;width:36px;white-space:nowrap;}
+  .rass-tbl td.label{font-weight:700;white-space:nowrap;width:72px;}
+  .rass-tbl td.desc{line-height:1.5;}
+  .rass-tbl tr.pos td{background:#FFF4F4;}
+  .rass-tbl tr.zero td{background:#F4FBF4;}
+  .rass-tbl tr.neg td{background:#F4F4FF;}
+  .rass-tbl tr.target td{background:#FFF8E8;}
+  .rass-tbl tr.target td.score{color:#C8900A;}
+
+  /* ECMO 左右分欄 */
+  .ecmo-cols{display:flex;gap:0;align-items:stretch;}
+  .ecmo-col-cmuh{flex:1;padding:12px 16px 14px;font-size:13px;line-height:1.8;background:var(--purpleBg);border-left:4px solid var(--purple);}
+  .ecmo-col-ntuh{
+    flex:1;
+    padding:12px 14px 14px;
+    font-size:13px;
+    line-height:1.8;
+    background:#EEF4FF;
+    border-left:2px dashed #4A6FA5;
+    position:relative;
+  }
+  .ntuh-badge{
+    display:inline-block;
+    background:#1a3a6b;
+    color:#fff;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 8px;
+    border-radius:3px;
+    letter-spacing:.5px;
+    margin-bottom:8px;
+  }
+  .ntuh-section{font-weight:700;font-size:12px;color:#1a3a6b;margin:8px 0 3px;letter-spacing:.3px;}
+  .ntuh-row{display:flex;justify-content:space-between;font-size:12px;padding:2px 0;border-bottom:1px solid #d0ddf0;}
+  .ntuh-row:last-child{border-bottom:none;}
+  .ntuh-param{color:#444;flex-shrink:0;padding-right:8px;}
+  .ntuh-val{font-weight:700;color:#1a3a6b;text-align:right;}
+  .ntuh-goal{
+    margin-top:10px;
+    background:#1a3a6b;
+    color:#fff;
+    border-radius:4px;
+    padding:7px 10px;
+    font-size:12px;
+    font-weight:700;
+    text-align:center;
+    line-height:1.6;
+  }
+
+  @media(max-width:520px){
+    .ecmo-cols{flex-direction:column;}
+    .ecmo-col-ntuh{border-left:4px solid #4A6FA5;border-top:2px dashed #4A6FA5;}
+  }
+
+  @media print{
+    body{background:#fff;padding:10px;}
+    .card{box-shadow:none;}
+  }
+
+  /* info button for prone stop criteria */
+  .info-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:18px;height:18px;background:#6A3F10;color:#fff;
+    font-size:11px;font-weight:900;border-radius:50%;cursor:pointer;
+    margin-left:5px;vertical-align:middle;border:none;line-height:1;
+    flex-shrink:0;position:relative;top:-1px;
+  }
+  .info-btn:hover{background:#4a2a08;}
+  .prone-modal{
+    background:#fff;border-radius:8px;max-width:440px;width:100%;
+    max-height:88vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.3);
+  }
+  .prone-modal-hd{
+    background:#6A3F10;color:#fff;padding:10px 16px;font-size:14px;
+    font-weight:700;border-radius:8px 8px 0 0;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .prone-modal-bd{padding:14px 16px;font-size:13px;line-height:1.8;}
+  .prone-modal-sub{font-weight:700;color:#6A3F10;font-size:12.5px;margin:10px 0 5px;}
+  .prone-item{
+    display:flex;gap:10px;padding:6px 0;
+    border-bottom:1px solid #f0e8d8;align-items:flex-start;
+  }
+  .prone-item:last-child{border-bottom:none;}
+  .prone-num{
+    flex-shrink:0;color:#fff;font-size:11px;font-weight:700;
+    width:20px;height:20px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .prone-num.ok  {background:#2E6B3A;}
+  .prone-num.warn{background:#C8900A;}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="main-title">
+    <h1>CMUH ARDS<br>「Lung Protective Strategy」Protocol</h1>
+  </div>
+
+  <!-- BERLIN -->
+  <div class="card">
+    <div class="card-hd blue">ARDS 2012 Berlin Definition²</div>
+    <div class="card-bd blue-bg">
+      <div class="li">Onset：1 週內發病，新發或惡化的呼吸症狀（within 7 days）</div>
+      <div class="li">影像：雙側肺浸潤（X-ray / CT），無法以積液、肺葉塌陷或結節完全解釋</div>
+      <div class="li">Cannot be fully explained by cardiac failure or fluid overload</div>
+      <div class="li"><strong>Hypoxemia：PaO₂/FIO₂ ≤ 300 mmHg（PEEP ≥ 5 cmH₂O）</strong></div>
+      <div class="sub">Mild：200 &lt; PaO₂/FIO₂ ≤ 300 mmHg</div>
+      <div class="sub">Moderate：100 &lt; PaO₂/FIO₂ ≤ 200 mmHg</div>
+      <div class="sub">Severe：PaO₂/FIO₂ ≤ 100 mmHg</div>
+    </div>
+  </div>
+
+  <!-- LPV -->
+  <div class="trigger"><span class="arr">↓</span><span class="txt">PaO₂/FIO₂ ≤ 300 mmHg</span></div>
+  <div class="card">
+    <div class="card-hd green">Lung Protective Strategy²</div>
+    <div class="card-bd green-bg">
+      <div class="li sq"><strong>Tidal volume  6 mL/kg PBW*（範圍 4–8 mL/kg）within 4 hours</strong></div>
+      <div class="li sq"><strong>Pplat ≤ 30 cmH₂O</strong></div>
+      <div class="li sq">Adequate PEEP（依下方對應表）</div>
+      <div class="li sq">Goal（clinical judgment）</div>
+      <div class="sub">Oxygenation：PaO₂ 55–80 mmHg  or  SpO₂ <strong>88%–95%</strong></div>
+      <div class="sub">Ventilation：pH ≥ 7.25，Respiratory rate ≤ 35 breaths/min</div>
+      <div class="li sq">Sedation if needed for ventilator synchronization</div>
+      <div class="li sq">F/u arterial gas：<strong>q6h</strong>  &amp;  <strong>0.5–1 hr</strong> after adjustment</div>
+      <div class="pbw-box">
+        <div class="lbl">*PBW  Predicted Body Weight</div>
+        <code>Male    =  50  +  0.91 × (Height − 152.4)</code>
+        <code>Female  =  45.5  +  0.91 × (Height − 152.4)</code>
+      </div>
+      <div class="peep-wrap">
+        <div class="peep-lbl">FIO₂ / PEEP 對應表</div>
+        <table class="peep-tbl" id="peep"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- NMB -->
+  <div class="trigger"><span class="arr">↓</span><span class="txt">PaO₂/FIO₂ &lt; 150 mmHg</span></div>
+  <div class="card">
+    <div class="card-hd brown">Neuromuscular Blocker⁴</div>
+    <div class="card-bd brown-bg">
+      <div class="li di">Timing：Early — first 48h of mod-severe ARDS（PaO₂/FIO₂ &lt; 150 mmHg under PEEP 5 cmH₂O）</div>
+      <div class="li di">Continuous IV infusion for ventilator synchronization（RASS target：−4 ~ −5<button class="rass-btn" onclick="document.getElementById('rassOverlay').classList.add('open')">!</button>）</div>
+    </div>
+  </div>
+
+  <!-- PRONE -->
+  <div class="card" style="margin-top:6px;">
+    <div class="card-hd dbrown">Prone Position⁵</div>
+    <div class="card-bd dbrown-bg">
+      <div class="li di">Timing：PaO₂/FIO₂ &lt; 150 mmHg，PEEP ≥ 5 cmH₂O，FIO₂ ≥ 0.6</div>
+      <div class="li di"><strong>Duration：At least  16 hours  per day</strong></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;margin:4px 0;">
+        <!-- 左：原有 stop criteria 列表 -->
+        <div style="flex:1;min-width:0;">
+          <div class="li di">Stop criteria：</div>
+          <div class="sub"><div class="li ck">改善：Supine P/F &gt; 150，FIO₂ ≤ 0.6，PEEP ≤ 10 cmH₂O，持續 4 hr</div></div>
+          <div class="sub"><div class="li wa">Worsening oxygenation</div></div>
+          <div class="sub"><div class="li wa">Desaturation（SpO₂ 驟降）</div></div>
+          <div class="sub"><div class="li wa">Pressure injury / Catheter or ETT dislodgement</div></div>
+          <div class="sub"><div class="li wa">Cardiac arrest / Hemodynamic instability</div></div>
+        </div>
+        <!-- 右：中榮翻回仰臥時機 -->
+        <div style="flex:1;min-width:0;border:1.5px solid #b07a40;border-radius:5px;overflow:hidden;font-size:12px;line-height:1.75;">
+          <div style="background:#6A3F10;color:#fff;padding:5px 10px;font-size:11.5px;font-weight:700;letter-spacing:.3px;">中榮護理部｜翻回仰臥時機</div>
+          <div style="padding:8px 10px;background:#FAF0E4;">
+            <div style="display:flex;gap:6px;padding:3px 0;border-bottom:1px solid #e8d8c0;">
+              <span style="color:#2E6B3A;font-weight:900;flex-shrink:0;">1.</span>
+              <span>FiO₂ ≤ 45%，PEEP &lt; 8 cmH₂O，SpO₂ &gt; 90%</span>
+            </div>
+            <div style="display:flex;gap:6px;padding:3px 0;border-bottom:1px solid #e8d8c0;">
+              <span style="color:#C8900A;font-weight:900;flex-shrink:0;">2.</span>
+              <span>俯臥時立即發生血壓下降</span>
+            </div>
+            <div style="display:flex;gap:6px;padding:3px 0;border-bottom:1px solid #e8d8c0;">
+              <span style="color:#C8900A;font-weight:900;flex-shrink:0;">3.</span>
+              <span>血氧飽和濃度惡化</span>
+            </div>
+            <div style="display:flex;gap:6px;padding:3px 0;">
+              <span style="color:#C8900A;font-weight:900;flex-shrink:0;">4.</span>
+              <span>嚴重併發症需翻回急救，如心律不整、氣胸⋯等</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="flow-lbl">Prone Position 決策流程圖</div>
+        <div class="fbox decision">Supine position P/F &lt; 150？</div>
+        <div class="yn-row">
+          <span class="yn-yes">✓ Yes ↓</span>
+          <span class="yn-no" style="color:#999;font-weight:500;">✗ No → 不執行俯臥</span>
+        </div>
+        <div class="fbox action">Prone position  ≥  16 hr / day</div>
+        <div class="flow-arr">↓</div>
+        <div class="fbox decision">
+          Supine P/F &gt; 150 for 4 hr<br>
+          <span style="font-size:12px;font-weight:500;">（FIO₂ ≤ 0.6，PEEP ≤ 10 cmH₂O）？</span>
+        </div>
+        <div class="yn-row">
+          <span class="yn-yes">✓ Yes ↓</span>
+          <span class="yn-no">✗ No ↓</span>
+        </div>
+        <div class="result-row">
+          <div class="result-keep">☑ Keep supine position</div>
+          <div class="result-prone">↩ 繼續俯臥位</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECMO -->
+  <div class="trigger"><span class="arr">↓</span><span class="txt">PaO₂/FIO₂ &lt; 80 mmHg</span></div>
+  <div class="card">
+    <div class="card-hd purple">ECMO⁶</div>
+    <div class="ecmo-cols">
+      <!-- 左：中榮 -->
+      <div class="ecmo-col-cmuh">
+        <div class="li"><strong>Timing：Early if no contraindications</strong></div>
+        <div class="sub">Hypoxemia：FIO₂ &gt; 0.8 + optimal care as above</div>
+        <div class="sub2">▶ P/F ratio &lt; 80  for  <strong>6 hr</strong></div>
+        <div class="sub2">▶ P/F ratio &lt; 50  for  <strong>3 hr</strong></div>
+        <div class="sub">Hypercapnia：despite RR ≤ 35 and Pplat ≤ 30 cmH₂O</div>
+        <div class="sub2">▶ PaCO₂ &gt; 60 mmHg  &amp;  pH &lt; 7.25  for 6H</div>
+        <div style="margin-top:8px;">
+          <div class="li"><strong>During ECMO：Ultra-protective ventilation</strong></div>
+          <div class="sub">Tidal volume：<strong>4 ml/kg PBW</strong></div>
+          <div class="sub2">▶ PEEP：10 cmH₂O</div>
+          <div class="sub2">▶ Driving pressure：10 cmH₂O</div>
+          <div class="sub2">▶ RR：10 bpm</div>
+          <div class="sub2">▶ FIO₂：0.4</div>
+        </div>
+      </div>
+      <!-- 右：台大 -->
+      <div class="ecmo-col-ntuh">
+        <div class="ntuh-badge">參考｜NTUH MICU</div>
+        <div class="ntuh-section">VV ECMO MV Setting</div>
+        <div class="ntuh-row"><span class="ntuh-param">PEEP</span><span class="ntuh-val">10–15 cmH₂O</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">IP（Driving P）</span><span class="ntuh-val">10 cmH₂O</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">VT</span><span class="ntuh-val">≤ 3 mL/kg IBW</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">RR</span><span class="ntuh-val">8–12 bpm</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">FiO₂</span><span class="ntuh-val">30–40%</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">Ti</span><span class="ntuh-val">1–2 秒</span></div>
+        <div class="ntuh-section">⚙️ VV ECMO Setting</div>
+        <div class="ntuh-row"><span class="ntuh-param">Blood flow</span><span class="ntuh-val">60 mL/kg IBW</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">Gas flow</span><span class="ntuh-val">blood flow × 1–2 倍</span></div>
+        <div class="ntuh-row"><span class="ntuh-param">FdO₂</span><span class="ntuh-val">100%</span></div>
+        <div class="ntuh-goal">◆ 目標<br>SpO₂ 85–92%<br>PaO₂ 50–70 mmHg</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="refs">
+    ² The Berlin Definition. JAMA. 2012;307(23):2526-2533　
+    ⁴ N Engl J Med 2010;358:1-13　
+    ⁵ N Engl J Med 2013;368:2095-2107　
+    ⁶ N Engl J Med 2018;378:1965-75
+  </div>
+
+</div>
+
+<!-- Prone Stop Criteria Modal -->
+<div class="rass-overlay" id="proneOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="prone-modal">
+    <div class="prone-modal-hd">
+      翻回仰臥時機
+      <button class="rass-close" onclick="document.getElementById('proneOverlay').classList.remove('open')">✕</button>
+    </div>
+    <div class="prone-modal-bd">
+      <div class="prone-modal-sub">4.1 達標條件（改善）</div>
+      <div class="prone-item">
+        <span class="prone-num ok">✓</span>
+        <span>FiO₂ ≤ 45%，PEEP &lt; 8 cmH₂O，SpO₂ &gt; 90%</span>
+      </div>
+      <div class="prone-modal-sub">4.2 緊急翻回</div>
+      <div class="prone-item">
+        <span class="prone-num warn">!</span>
+        <span>俯臥時立即發生血壓下降</span>
+      </div>
+      <div class="prone-item">
+        <span class="prone-num warn">!</span>
+        <span>血氧飽和濃度惡化</span>
+      </div>
+      <div class="prone-modal-sub">4.3 嚴重併發症</div>
+      <div class="prone-item">
+        <span class="prone-num warn">!</span>
+        <span>需翻回急救，如心律不整、氣胸⋯等</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RASS Modal -->
+<div class="rass-overlay" id="rassOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="rass-modal">
+    <div class="rass-modal-hd">
+      RASS 鎮靜程度評估表
+      <button class="rass-close" onclick="document.getElementById('rassOverlay').classList.remove('open')">✕</button>
+    </div>
+    <table class="rass-tbl">
+      <tr><th>分數</th><th>描述</th><th>說明</th></tr>
+      <tr class="pos"><td class="score">+4</td><td class="label">戰鬥性</td><td class="desc">明顯戰鬥性，暴力相向，對工作人員有立即危險性</td></tr>
+      <tr class="pos"><td class="score">+3</td><td class="label">非常躁動</td><td class="desc">拉扯或拔除管路；具攻擊性</td></tr>
+      <tr class="pos"><td class="score">+2</td><td class="label">躁動</td><td class="desc">經常無目的性運動，與人工呼吸器對抗</td></tr>
+      <tr class="pos"><td class="score">+1</td><td class="label">煩躁</td><td class="desc">焦慮，動作無攻擊性，精力充沛</td></tr>
+      <tr class="zero"><td class="score">0</td><td class="label">警覺、安靜</td><td class="desc">—</td></tr>
+      <tr class="neg"><td class="score">−1</td><td class="label">嗜睡</td><td class="desc">對語言清醒（眼神接觸 &gt; 10 秒）</td></tr>
+      <tr class="neg"><td class="score">−2</td><td class="label">輕度鎮靜</td><td class="desc">短暫對語言反應（眼神接觸 &lt; 10 秒）</td></tr>
+      <tr class="neg"><td class="score">−3</td><td class="label">中度鎮靜</td><td class="desc">對語言僅張眼或動一下（無眼神接觸）</td></tr>
+      <tr class="neg target"><td class="score">−4</td><td class="label">深度鎮靜</td><td class="desc">對語言無反應，身體刺激可張眼或動一下</td></tr>
+      <tr class="neg target"><td class="score">−5</td><td class="label">無法喚醒</td><td class="desc">對語言或身體刺激均無反應</td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+const fio2 = ['FIO₂','0.3','0.4','0.5','0.6','0.7','0.8','0.9','1.0'];
+const peep = ['PEEP','5','5-8','8-10','10','10-14','14','14-18','18-24'];
+const tbl = document.getElementById('peep');
+[fio2, peep].forEach((row, ri) => {
+  const tr = tbl.insertRow();
+  row.forEach((v, ci) => {
+    const td = tr.insertCell();
+    td.textContent = v;
+    if (ci === 0) td.className = 'hd';
+    else if (ri === 0) td.style.background = '#f0f7e8';
+  });
+});
+</script>
+</body>
+</html>
